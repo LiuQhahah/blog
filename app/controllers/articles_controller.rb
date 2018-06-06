@@ -1,6 +1,16 @@
 class ArticlesController < ApplicationController
 
+    #显示所有文章
+    #使用的路由为：articles GET    /articles(.:format)          articles#index
+    #对应创建一个index.html.erb文件
+    #创建变量@articles
+    def index
+        @articles = Article.all
+    end
+
     #显示数据，show
+    #使用的路由：article GET    /articles/:id(.:format)      articles#show
+    #创建页面文件view:shou.html.erb
     def show
         @article = Article.find(params[:id])
     end
