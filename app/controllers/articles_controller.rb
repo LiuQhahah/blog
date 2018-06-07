@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
     #显示所有文章
     #使用的路由为：articles GET    /articles(.:format)          articles#index
     #对应创建一个index.html.erb文件
-    #创建变量@articles
+    #创建变量@articles 实例变量以 @ 开头
     def index
         @articles = Article.all
     end
@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
 
 
     def new
+        @article = Article.new
     end
 
     def create
@@ -27,8 +28,13 @@ class ArticlesController < ApplicationController
         #使用私有方法写更安全的程序
         @article = Article.new(article_params)
 
-        @article.save
-        redirect_to @article
+        #If @article.save fails in this situation, we need to show the form back to the user. 
+        if 
+            @article.save
+            redirect_to @article
+        else
+            render 'new'
+        end
     end
 
     private 

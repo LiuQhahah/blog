@@ -23,6 +23,26 @@ Things you may want to cover:
 
 * ...
 
+
+##  4.2 生成 new controller
+
+To create a new controller, you will need to run the "controller" generator and tell it you want a controller called "Welcome" with an action called "index"
+
+> $ bin/rails generate controller Welcome index
+
+
+Most important of these are of course the controller, located at app/controllers/welcome_controller.rb and the view, located at app/views/welcome/index.html.erb.
+
+## 4.3 设置应用主页：Setting the Application Home Page
+
+Open the file config/routes.rb in your editor.
+
+    Rails.application.routes.draw do
+    get 'welcome/index'
+    
+    root 'welcome#index'
+    end
+
 ### link_to
 
 The link_to method is one of Rails' built-in view helpers. It creates a hyperlink based on text to display and where to go - in this case, to the path for articles.
@@ -33,3 +53,5 @@ new 一个 文章路径 new_article_path，其中article是通过generate articl
 
 ### articles_path
 指的是  变量articles 的路径，下划线代替了点.
+
+## 5.10 Adding Some Validation
