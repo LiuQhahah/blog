@@ -55,3 +55,22 @@ new 一个 文章路径 new_article_path，其中article是通过generate articl
 指的是  变量articles 的路径，下划线代替了点.
 
 ## 5.10 Adding Some Validation
+
+## 5.11 Updating Articles
+
+We've covered the "CR" part of CRUD. Now let's focus on the "U" part, updating articles.
+
+
+## 5.12 Using partials to clean up duplication in views 对于重复代码的处理
+
+创建文件  `/_form.html.erb`
+
+>new.html.erb 代码
+
+```ruby
+<h1>New article</h1>
+ 
+<%= render 'form' %>
+ 
+<%= link_to 'Back', articles_path %>
+```

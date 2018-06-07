@@ -20,6 +20,10 @@ class ArticlesController < ApplicationController
         @article = Article.new
     end
 
+    def edit
+        @article = Article.find(params[:id])
+    end
+
     def create
         #一个键值对 plain :(params[:article].inspect)
         #render plain: params[:article].inspect
@@ -37,6 +41,15 @@ class ArticlesController < ApplicationController
         end
     end
 
+    def update
+        @article = Article.find(params[:id])
+
+        if @article.update(article_params)
+            redirect_to @article
+        else
+            render 'edit'
+        end
+    end
     private 
         def article_params
             params.require(:article).permit(:title,:text)
