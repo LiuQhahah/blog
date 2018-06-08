@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   #方法resources:用来声明一个标准的REST资源bin
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
   
   #设置默认打开127.0.0.1:3000的默认路径
   root 'welcome#index'
