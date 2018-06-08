@@ -1,5 +1,9 @@
 class ArticlesController < ApplicationController
+    #账号认证
 
+    http_basic_authenticate_with name: "dhh",password: "secret",
+    except: [:index,:show]
+    
     #显示所有文章
     #使用的路由为：articles GET    /articles(.:format)          articles#index
     #对应创建一个index.html.erb文件
